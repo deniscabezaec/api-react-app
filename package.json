@@ -4,12 +4,12 @@
  "description": "API REST para aplicación con react",
  "main": "index.js",
  "scripts": {
-   "test": "echo \"Error: no test specified\" && exit 1"
+  "test": "echo \"Error: no test specified\" && exit 1"
  },
  "keywords": [
-   "API",
-   "REST",
-   "NodeJS"
+  "API",
+  "REST",
+  "NodeJS"
  ],
  "author": "Denis Cabeza Valencia",
  "license": "MIT",

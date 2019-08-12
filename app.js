@@ -24,7 +24,7 @@ router.get('/hola', function(req, res) {
 app.use(router);
 /*'mongodb://root:ak123456@alexkbza.com:27017/bdd-react-app',*/
 /*'mongodb://root:lmery1997@merylema.com:27017/ProjectGyA'*/
-mongoose.connect('mongodb://root:ak123456@alexkbza.com:27017/bdd-react-app', { useMongoClient: true})
+mongoose.connect('mongodb://root:ak123456@alexkbza.com:27017/bdd-react-app', { useNewUrlParser: true})
     .then(() => {
 
         console.log("La conexión a la base de datos se ha realizado correctamente");
@@ -35,4 +35,4 @@ mongoose.connect('mongodb://root:ak123456@alexkbza.com:27017/bdd-react-app', { u
     })
     .catch(err => console.log('ERROR: connecting to Database. ' + err));
 
-
+module.exports = app;
