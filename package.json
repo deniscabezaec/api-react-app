@@ -1,6 +1,18 @@
 {
- "name": "node-api-rest-example",
+ "name": "api-react-app",
  "version": "2.0.0",
+ "description": "API REST para aplicación con react",
+ "main": "index.js",
+ "scripts": {
+   "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "keywords": [
+   "API",
+   "REST",
+   "NodeJS"
+ ],
+ "author": "Denis Cabeza Valencia",
+ "license": "MIT",
  "dependencies": {
   "body-parser": "^1.5.1",
   "express": "^4.17.1",
