@@ -1,0 +1,4 @@
+﻿{
+    "connectionString": "mongodb://node:ak123456@alexkbza.com:27017/node-mongo-registration-login-api",
+    "secret": "secret"
+}
