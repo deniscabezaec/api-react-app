@@ -103,7 +103,7 @@ exports.update = (req, res) => {
 
 // Delete a note with the specified noteId in the request
 exports.delete = (req, res) => {
-    Usuario.findByIdAndRemove(req.params.cedula)
+    Usuario.remove(req.params.cedula)
     .then(usuario => {
         if(!usuario) {
             return res.status(404).send({

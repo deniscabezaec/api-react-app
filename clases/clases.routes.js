@@ -3,33 +3,33 @@ module.exports = (app) => {
     const usuarios = require('./usuarios.controller.js');
 
     // Create a new Materia
-    app.post('/clases', clases.create);
+    app.post('/class', clases.create);
 
     // Retrieve all Materias
     app.get('/class', clases.findAll);
 
     // Retrieve a single Materia with idmateria
-    app.get('/idclass/:idmateria', clases.findOne);
+    app.get('/class/:idmateria', clases.findOne);
 
     // Update a Materia with idmateria
-    app.put('/upclass/:idmateria', clases.update);
+    app.put('/class/update/:idmateria', clases.update);
 
     // Delete a Materia with idmateria
-    app.delete('/declass/:idmateria', clases.delete);
+    app.delete('/class/delete/:idmateria', clases.delete);
 
 
     // Create a new Usuarios
-    app.post('/usuario', usuarios.create);
+    app.post('/usuarios', usuarios.create);
 
     // Retrieve all Usuarios
     app.get('/usuarios', usuarios.findAll);
 
     // Retrieve a single Usuarios with cedula
-    app.get('/usuario/:cedula', usuarios.findOne);
+    app.get('/usuarios/:cedula', usuarios.findOne);
 
     // Update a Usuarios with cedula
-    app.put('/upusuario/:cedula', usuarios.update);
+    app.put('/usuarios/update/:cedula', usuarios.update);
 
     // Delete a Usuarios with cedula
-    app.delete('/deusuario/:cedula', usuarios.delete);
+    app.delete('/usuario/delete/:cedula', usuarios.delete);
 }
