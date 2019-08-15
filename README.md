@@ -1,5 +1,6 @@
-# node-mongo-registration-login-api
+# NodeAPI
+How to create Restful CRUD API with Node.js MongoDB and Express
 
-NodeJS + MongoDB API for User Management, Authentication and Registration
+Update MongoDB connection Url in config.js file
 
-For documentation and instructions check out http://jasonwatmore.com/post/2018/06/14/nodejs-mongodb-simple-api-for-authentication-registration-and-user-management
+Install Node.js and relevant dependencies in your app folder
