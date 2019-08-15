@@ -47,7 +47,7 @@ exports.findAll = (req, res) => {
 
 // Find a single product with a productId
 exports.findOne = (req, res) => {
-    Hclases.find(req.params.idmateria)
+    Hclases.findOne({idmateria: req.params.idmateria})
     .then(hclases => {
         if(!hclases) {
             return res.status(404).send({
@@ -77,7 +77,7 @@ exports.update = (req, res) => {
     }
 
     // Find and update product with the request body
-    Hclases.findByIdAndUpdate(req.params.idmateria, {
+    Hclases.findOneAndUpdate({idmateria: req.params.idmateria}, {
         idmateria: req.body.idmateria,
         laboratorio: req.body.laboratorio || "No product title",
         dia: req.body.dia,
@@ -109,7 +109,7 @@ exports.update = (req, res) => {
 
 // Delete a note with the specified noteId in the request
 exports.delete = (req, res) => {
-    Hclases.remove(req.params.idmateria)
+    Hclases.findOneAndRemove({idmateria: req.params.idmateria})
     .then(hclases => {
         if(!hclases) {
             return res.status(404).send({
@@ -124,7 +124,7 @@ exports.delete = (req, res) => {
             });                
         }
         return res.status(500).send({
-            message: "Could not delete materia with id " + req.params.materia
+            message: "Could not delete materia with id " + req.params.idmateria
         });
     });
 };

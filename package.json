@@ -1,6 +1,6 @@
 {
-  "name": "product-app",
-  "version": "1.0.0",
+  "name": "api-react-app",
+  "version": "1.5.0",
   "description": "React app",
   "main": "server.js",
   "scripts": {

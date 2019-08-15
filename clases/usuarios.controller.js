@@ -10,8 +10,8 @@ exports.create = (req, res) => {
     }
 
     // Create a Usuario
-    const usuario= new Usuario({
-        cedula: req.params.cedula,
+    var usuario= new Usuario({
+        cedula: req.body.cedula,
         nombres: req.body.nombres || "Sin Nombre",
         apellidos: req.body.apellidos,
         idrol: req.body.idrol,
@@ -20,9 +20,10 @@ exports.create = (req, res) => {
     });
 
     // Save Usuario in the database
-    usuario.save()
-    .then(data => {
-        res.send(data);
+    Usuario.save() 
+        //Usuario.insert(usuario)
+    .then(usuario => {
+        res.send(usuario);
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Something wrong while creating the usuario."
@@ -44,7 +45,7 @@ exports.findAll = (req, res) => {
 
 // Find a single product with a usuario
 exports.findOne = (req, res) => {
-    Usuario.find(req.params.cedula)
+    Usuario.findOne({cedula: req.params.cedula})
     .then(usuario => {
         if(!usuario) {
             return res.status(404).send({
@@ -59,7 +60,7 @@ exports.findOne = (req, res) => {
             });                
         }
         return res.status(500).send({
-            message: "Something wrong retrieving usuario with cedula " + req.params.idmateria
+            message: "Something wrong retrieving usuario with cedula " + req.params.cedula
         });
     });
 };
@@ -74,7 +75,7 @@ exports.update = (req, res) => {
     }
 
     // Find and update product with the request body
-    Usuario.findByIdAndUpdate(req.params.cedula, {
+    Usuario.findOneAndUpdate({cedula: req.params.cedula}, {
         cedula: req.body.cedula,
         nombres: req.body.nombres || "Sin Nombre",
         apellidos: req.body.apellidos,
@@ -103,7 +104,7 @@ exports.update = (req, res) => {
 
 // Delete a note with the specified noteId in the request
 exports.delete = (req, res) => {
-    Usuario.remove(req.params.cedula)
+    Usuario.findOneAndRemove({cedula: req.params.cedula})
     .then(usuario => {
         if(!usuario) {
             return res.status(404).send({
