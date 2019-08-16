@@ -1,12 +1,16 @@
 {
   "name": "api-react-app",
-  "version": "1.5.0",
-  "description": "React app",
+  "version": "2.1.0",
+  "description": "NodeJS + MongoDB API for React Management",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DenisCabezaV/api-react-app.git"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Denis Cabeza V.",
+  "author": "Denis Cabeza Valencia",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",

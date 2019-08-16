@@ -31,5 +31,5 @@ module.exports = (app) => {
     app.put('/usuarios/update/:cedula', usuarios.update);
 
     // Delete a Usuarios with cedula
-    app.delete('/usuario/delete/:cedula', usuarios.delete);
+    app.delete('/usuarios/delete/:cedula', usuarios.delete);
 }

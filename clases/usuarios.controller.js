@@ -1,5 +1,4 @@
-const Usuario = require('./usuarios.model.js');
-
+const Usuario =  require('./usuarios.model');
 //Create new Usuario
 exports.create = (req, res) => {
     // Request validation
@@ -10,18 +9,21 @@ exports.create = (req, res) => {
     }
 
     // Create a Usuario
-    var usuario= new Usuario({
+    const usuario= new Usuario({
         cedula: req.body.cedula,
         nombres: req.body.nombres || "Sin Nombre",
         apellidos: req.body.apellidos,
+        email: req.body.email,
         idrol: req.body.idrol,
         rol: req.body.rol,
+        pass: req.body.pass,
         materias: req.body.materias
     });
 
-    // Save Usuario in the database
-    Usuario.save() 
-        //Usuario.insert(usuario)
+    //Save Usuario in the database
+    usuario.save(
+            console.log('Usuario created!')
+    )
     .then(usuario => {
         res.send(usuario);
     }).catch(err => {
@@ -79,8 +81,10 @@ exports.update = (req, res) => {
         cedula: req.body.cedula,
         nombres: req.body.nombres || "Sin Nombre",
         apellidos: req.body.apellidos,
+        email: req.body.email,
         idrol: req.body.idrol,
         rol: req.body.rol,
+        pass: req.body.pass,
         materias: req.body.materias
     }, {new: true})
     .then(usuario => {

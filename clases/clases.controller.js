@@ -12,7 +12,7 @@ exports.create = (req, res) => {
     // Create a Class
     const hclases = new Hclases({
         idmateria: req.body.idmateria,
-        laboratorio: req.body.laboratorio || "No product title",
+        laboratorio: req.body.laboratorio,
         dia: req.body.dia,
         horainicio: req.body.horainicio,
         horafinal: req.body.horafinal,
@@ -23,12 +23,14 @@ exports.create = (req, res) => {
     });
 
     // Save Product in the database
-    hclases.save()
+    hclases.save(
+            console.log('Class created!')
+    )
     .then(data => {
         res.send(data);
     }).catch(err => {
         res.status(500).send({
-            message: err.message || "Something wrong while creating the product."
+            message: err.message || "Something wrong while creating the clases."
         });
     });
 };
@@ -51,18 +53,18 @@ exports.findOne = (req, res) => {
     .then(hclases => {
         if(!hclases) {
             return res.status(404).send({
-                message: "Not found with id " + req.params.idmateria
+                message: "Not found with idMateria " + req.params.idmateria
             });            
         }
         res.send(hclases);
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Clases not found with id " + req.params.idmateria + " Error: " + err.name
+                message: "Clases not found with idMateria " + req.params.idmateria + " Error: " + err.name
             });                
         }
         return res.status(500).send({
-            message: "Something wrong retrieving product with id " + req.params.idmateria
+            message: "Something wrong retrieving clases with idMateria " + req.params.idmateria
         });
     });
 };
@@ -79,7 +81,7 @@ exports.update = (req, res) => {
     // Find and update product with the request body
     Hclases.findOneAndUpdate({idmateria: req.params.idmateria}, {
         idmateria: req.body.idmateria,
-        laboratorio: req.body.laboratorio || "No product title",
+        laboratorio: req.body.laboratorio,
         dia: req.body.dia,
         horainicio: req.body.horainicio,
         horafinal: req.body.horafinal,
@@ -91,18 +93,18 @@ exports.update = (req, res) => {
     .then(hclases => {
         if(!hclases) {
             return res.status(404).send({
-                message: "Materia not found with id " + req.params.idmateria
+                message: "Materia not found with idMateria " + req.params.idmateria
             });
         }
         res.send(hclases);
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Clases not found with id " + req.params.idmateria
+                message: "Materia not found with idMateria " + req.params.idmateria
             });                
         }
         return res.status(500).send({
-            message: "Something wrong updating note with id " + req.params.idmateria
+            message: "Something wrong updating materia with idMateria " + req.params.idmateria
         });
     });
 };
